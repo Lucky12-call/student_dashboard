@@ -113,6 +113,15 @@ export default function Dashboard() {
 
   const navigate = useNavigate();
 
+  //get batch filters filed
+  function getUniqueBatchArray() {
+    return [
+      ...new Set(
+        studentsData.map((item) => item?.student?.batch_info).filter(Boolean) // removes null/undefined
+      ),
+    ];
+  }
+
   const logout = () => {
     fetch(
       "https://student-dashboard-gamma-one.vercel.app/api/v1/admin/logout",
@@ -157,6 +166,7 @@ export default function Dashboard() {
             setTo("");
             setBatch("");
           }}
+          getUniqueBatchArray={getUniqueBatchArray}
         />
 
         {/* TABLE */}

@@ -22,6 +22,7 @@ export function SearchFilters({
   batch,
   onBatchChange,
   onClearFilters,
+  getUniqueBatchArray,
 }: any) {
   const { isDownloading, setIsDownloading } = useAuth();
 
@@ -113,10 +114,11 @@ export function SearchFilters({
                 <SelectValue placeholder="Select batch" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="2022-24">2022-24</SelectItem>
-                <SelectItem value="2023-25">2023-25</SelectItem>
-                <SelectItem value="2024-26">2024-26</SelectItem>
-                <SelectItem value="2025-27">2025-27</SelectItem>
+                {getUniqueBatchArray().map((b: string) => (
+                  <SelectItem key={b} value={b}>
+                    {b}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
