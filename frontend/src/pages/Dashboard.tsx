@@ -114,10 +114,13 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const logout = () => {
-    fetch("http://localhost:4000/api/v1/admin/logout", {
-      method: "POST",
-      credentials: "include",
-    });
+    fetch(
+      "https://student-dashboard-gamma-one.vercel.app/api/v1/admin/logout",
+      {
+        method: "POST",
+        credentials: "include",
+      }
+    );
     setIsAuthenticated(false);
     navigate("/login");
   };

@@ -38,7 +38,7 @@ export function EntryDetailsDrawer({
   const downloadStudentDocs = () => {
     setIsDownloadingStudentDocs(true);
     fetch(
-      `http://localhost:4000/api/v1/download/student/${entry?.student?.user_id}`
+      `https://student-dashboard-gamma-one.vercel.app/api/v1/download/student/${entry?.student?.user_id}`
     )
       .then((response) => {
         const header = response.headers.get("Content-Disposition");

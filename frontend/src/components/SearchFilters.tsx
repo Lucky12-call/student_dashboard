@@ -28,7 +28,7 @@ export function SearchFilters({
   const downloadAllStudentsDocs = () => {
     setIsDownloading(true);
 
-    fetch("http://localhost:4000/api/v1/download/all")
+    fetch("https://student-dashboard-gamma-one.vercel.app/api/v1/download/all")
       .then((res) => res.blob())
       .then((blob) => {
         const url = window.URL.createObjectURL(blob);

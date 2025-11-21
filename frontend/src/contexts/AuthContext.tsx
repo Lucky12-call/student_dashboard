@@ -53,14 +53,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (email: string, password: string) => {
     try {
-      const res = await fetch("http://localhost:4000/api/v1/admin/login", {
-        method: "POST",
-        credentials: "include", // REQUIRED for cookies
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "https://student-dashboard-gamma-one.vercel.app/api/v1/admin/login",
+        {
+          method: "POST",
+          credentials: "include", // REQUIRED for cookies
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (!res.ok) {
         return false;
@@ -80,7 +83,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const fetchStudentsData = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.get("http://localhost:4000/api/v1/students");
+      const { data } = await axios.get(
+        "https://student-dashboard-gamma-one.vercel.app/api/v1/students"
+      );
 
       if (!Array.isArray(data)) {
         setStudentsData([]);
