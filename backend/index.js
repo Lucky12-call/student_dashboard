@@ -15,7 +15,7 @@ app.use(cookieParser());
 // CORS FIX
 app.use(
   cors({
-    origin: "https://student-dashboard-94dd.vercel.app",
+    origin: "https://student-dashboard-lc6f.vercel.app",
     methods: ["GET", "POST"],
     credentials: true,
   })
